@@ -1,0 +1,10 @@
+.header-text {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 40px;
+}
+.content-landing-page {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}

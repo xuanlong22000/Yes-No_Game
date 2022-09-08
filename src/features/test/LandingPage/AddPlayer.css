@@ -1,0 +1,16 @@
+.btn-add-player {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.add-player-header {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.input-add-player {
+  width: 100%;
+  height: 30px;
+}
+.btn-add-player-wrapper {
+  margin-top: 25px;
+}
