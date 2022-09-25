@@ -16,3 +16,39 @@
 .active {
   background-color: red !important;
 }
+.gif {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.btn-next-player {
+  display: none !important;
+}
+.btn-next-player2 {
+  display: block !important;
+}
+.displayPopup {
+  display: block;
+}
+.hiddenPopup {
+  display: none;
+}
+.correct {
+  font-size: 20px;
+  width: 100px;
+  height: 50px;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.incorrect {
+  font-size: 20px;
+  color: white;
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

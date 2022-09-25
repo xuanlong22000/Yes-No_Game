@@ -6,8 +6,8 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import './AddPlayer.css'
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { savePlayer } from '../counterSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { icreIdPlayer, idInitPlayer, savePlayer } from '../counterSlice';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -22,6 +22,7 @@ const style = {
 const AddGame = () => {
     const [open, setOpen] = useState(false);
     const [name, setName] = useState('')
+    const idPlayer = useSelector(idInitPlayer)
     const dispatch = useDispatch()
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -30,7 +31,8 @@ const AddGame = () => {
         setName(e.target.value)
     }
     const saveNamePlayer = () => {
-        dispatch(savePlayer({ name }))
+        dispatch(savePlayer({ id: idPlayer, name }))
+        dispatch(icreIdPlayer())
     }
     return (
         <div className='btn-add-player'>

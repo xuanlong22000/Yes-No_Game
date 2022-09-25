@@ -6,14 +6,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useSelector } from 'react-redux';
-import { selectCount } from '../counterSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAnswer, selectCount } from '../counterSlice';
 import { Button, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './ListPlayer.css'
 
 const ListPlayer = () => {
     const players = useSelector(selectCount);
+    const dispatch = useDispatch()
+    const handleStart = () => {
+        dispatch(getAnswer())
+    }
 
     return (
         <div>
@@ -31,7 +35,7 @@ const ListPlayer = () => {
                                 key={index}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                                <TableCell >{index + 1}</TableCell>
+                                <TableCell >{player.id}</TableCell>
                                 <TableCell >{player.name}</TableCell>
                             </TableRow>
                         ))}
@@ -44,7 +48,7 @@ const ListPlayer = () => {
                         <Button variant="outlined">Add more player</Button>
                     </Link>
                     <Link style={{ textDecoration: 'none' }} to={'/gameScreen'}>
-                        <Button variant="contained">Start the Game</Button>
+                        <Button onClick={handleStart} variant="contained">Start the Game</Button>
                     </Link>
                 </Stack>
             </div>

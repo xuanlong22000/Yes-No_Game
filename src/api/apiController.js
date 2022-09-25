@@ -1,6 +1,9 @@
 import AxiosClient from "./axiosClient";
 
 const apiController = {
+    getAnswer: () => {
+        return AxiosClient.get('/');
+    }
     // showdata: () => {
     //     return AxiosClient.get('/');
     // },

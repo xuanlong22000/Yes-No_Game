@@ -5,3 +5,7 @@
 .wrapper-table {
   padding: 50px;
 }
+.btn-next-question {
+  display: flex;
+  justify-content: center;
+}
