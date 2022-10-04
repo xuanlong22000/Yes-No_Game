@@ -5,9 +5,7 @@ import Box from '@mui/material/Box';
 
 import Modal from '@mui/material/Modal';
 import './AddPlayer.css'
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { icreIdPlayer, idInitPlayer, savePlayer } from '../counterSlice';
+import PopUpAddPlayer from './PopUpAddPlayer';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -21,19 +19,9 @@ const style = {
 };
 const AddGame = () => {
     const [open, setOpen] = useState(false);
-    const [name, setName] = useState('')
-    const idPlayer = useSelector(idInitPlayer)
-    const dispatch = useDispatch()
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const handleChange = (e) => {
-        setName(e.target.value)
-    }
-    const saveNamePlayer = () => {
-        dispatch(savePlayer({ id: idPlayer, name }))
-        dispatch(icreIdPlayer())
-    }
     return (
         <div className='btn-add-player'>
 
@@ -47,17 +35,7 @@ const AddGame = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <div className='add-player-header'>Please enter a new name</div>
-                    <div style={{ marginBottom: '20px' }}>New name:</div>
-                    <input className='input-add-player' onChange={handleChange} value={name} />
-                    <div className='btn-add-player-wrapper'>
-                        <Stack spacing={2} direction="row">
-                            <Link style={{ textDecoration: 'none' }} to={'/listPlayer'}>
-                                <Button onClick={saveNamePlayer} variant="contained">OK</Button>
-                            </Link>
-                            <Button onClick={handleClose} variant="outlined">Cancel</Button>
-                        </Stack>
-                    </div>
+                    <PopUpAddPlayer handleClose={handleClose} />
                 </Box>
             </Modal>
 
